@@ -1,21 +1,20 @@
 const parentOfLinks = document.querySelector(".paragraph");
 parentOfLinks.addEventListener('click', catchLinks);
-console.log(parentOfLinks);
 
 function catchLinks(e){
-
     if(e.target !== e.currentTarget){
-        e.preventDefault();
-        let answer = confirm("Do you want to go to " + e.target.getAttribute('href'));
-        console.log(e.target.getAttribute('href'))
-        return moveTo(answer, e.target);
+        let answer = confirm("Do you want to go to " + e.target.innerText);
+        if(!answer){
+            e.preventDefault();
+        }
+        return answer;
     }   
 }
 
 function moveTo(ans, trg){
     if(ans){
         console.log(trg.getAttribute('href'))
-        return (trg.getAttribute('href'));
+        return true;
     } 
         return false;
 }
