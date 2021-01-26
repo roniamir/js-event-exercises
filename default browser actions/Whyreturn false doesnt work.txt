@@ -1,0 +1,8 @@
+Why in the code below return false doesn’t work at all?
+
+-the returned "false" is not reaching to anything, and the function dosent include any defult browser canceling action.
+
+The browser follows the URL on click, but we don’t want it.
+How to fix?
+
+-to fix we need to add event.preventDefault(); which cancel the defult browser action (open the link).
