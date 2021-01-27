@@ -4,8 +4,8 @@ treeContainer.addEventListener('click', hideChildren);
 
 function hideChildren(e){
     let clickedTarget = e.target.closest('li');
- 
-console.log(clickedTarget.hasChildNodes());
+
+    if(clickedTarget.childNodes[1] === undefined) return;
 
     if (clickedTarget.hasChildNodes()) {
         let children = clickedTarget.childNodes[1];
