@@ -4,7 +4,6 @@ body {
   }
 
   .tooltip {
-    /* some styles for the tooltip, you can use your own instead */
     position: fixed;
     padding: 10px 20px;
     border: 1px solid #b3c9ce;
@@ -16,8 +15,4 @@ body {
     box-shadow: 3px 3px 3px rgba(0, 0, 0, .3);
   }
 
-  button{
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
-  }
+  

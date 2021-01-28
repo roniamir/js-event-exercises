@@ -6,24 +6,38 @@ container.addEventListener('mouseout', removeTooltip);
 function popTooltip(e){
     if (e.target.dataset.tooltip != undefined) { // if the attribute exists - creat and add tooltip element
         let tooltip = document.createElement('span');
-        tooltip.classList.add('tootip', 'tooltipText');
+        tooltip.classList.add('tooltip');
         let tooltipText = e.target.dataset.tooltip;
-        e.preventDefault();
         tooltip.innerText = tooltipText;
-        e.target.closest('button').append(tooltip);
-       // tooltip.hidden = false;
+        document.body.append(tooltip);
+
+        //tooltipPlace(tooltip, e.target);
+console.log(e.target.getBoundingClientRect());
+        const targetboundings = e.target.getBoundingClientRect();
+        let left = targetboundings.left + (targetboundings.offsetWidth - tooltip.offsetWidth) / 2;
+        if (left < 0){
+            left = 0; 
+        } 
+
+        let top = targetboundings.top - tooltip.offsetHeight - 5;
+        if (top < 0) { 
+          top = targetboundings.top + targetboundings.offsetHeight + 5;
+        }
+        tooltip.style.left = left + 'px';
+        tooltip.style.top = top + 'px';
       }
+}
 
-      console.log(e.target);
+function tooltipPlace(theTooltip, button){
+    let left = button.left + (button.offsetWidth );
 
-
+    theTooltip.style.left =left;
 }
 
 function removeTooltip(e){
     if (e.target.dataset.tooltip != undefined) {
-        let tooltip = e.target.childNodes[1];
-        console.log(tooltip);
+        let tooltip = document.querySelector('.tooltip');
         tooltip.remove();
     }
-    console.log(e.target);
+
 }
